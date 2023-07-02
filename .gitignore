@@ -135,7 +135,7 @@ media/
 .media
 
 # FRONTEND
-
+node_modules/
 # dependencies
 /node_modules
 /.pnp
