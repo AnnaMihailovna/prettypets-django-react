@@ -1,0 +1,5 @@
+IP: 84.252.140.107;
+name_taski: https://tasking.sytes.net;
+name_kittygram: https://prettykittygram.hopto.org;
+login: AnnaM;
+password: Anna1234;
