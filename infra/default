@@ -14,7 +14,7 @@ server {
     location / {
         root   /var/www/kittygram;
         index  index.html index.htm;
-        try_files $uri /index.html;
+        try_files $uri /index.html =404;
     }
 
     location /media/ {
@@ -46,7 +46,7 @@ server {
 	location / {
                 root /var/www/taski;
                 index index.html index.html;
-		try_files $uri /index.html;
+		try_files $uri /index.html =404;
 	}
 
 	

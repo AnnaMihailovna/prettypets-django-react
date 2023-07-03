@@ -135,8 +135,9 @@ media/
 .media
 
 # FRONTEND
-node_modules/
+
 # dependencies
+/infra_sprint1/frontend/node_modules
 /node_modules
 /.pnp
 .pnp.js

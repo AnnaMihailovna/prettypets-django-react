@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
-SECRET_KEY = os.getevn('TOKEN', 'SECRET')
+SECRET_KEY = os.getenv('TOKEN')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['84.252.140.107', '127.0.0.1', 'localhost', 'prettykittygram.hopto.org']
+ALLOWED_HOSTS = os.getenv('HOSTS').split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -92,7 +92,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static_backend'
+STATIC_URL = '/static_backend/'
 STATIC_ROOT = BASE_DIR / 'static_backend'
 
 MEDIA_URL = '/media/'
