@@ -9,7 +9,9 @@ SECRET_KEY = os.getenv('TOKEN')
 
 DEBUG = False
 
-ALLOWED_HOSTS = os.getenv('HOSTS').split()
+# тесты так не проходит при отправке(пишет к Nonetype объект split() не применяется), но работает вроде
+ALLOWED_HOSTS = str(os.getenv('HOSTS')).split()
+# ALLOWED_HOSTS = ['84.252.140.107', '127.0.0.1', 'localhost', 'prettykittygram.hopto.org']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
