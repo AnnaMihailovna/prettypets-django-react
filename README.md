@@ -206,6 +206,11 @@ server {
         proxy_pass http://127.0.0.1:8000;
     }
 
+    location /media/ {
+        proxy_set_header Host $http_host;
+        proxy_pass http://127.0.0.1:8000;
+    }
+
     location / {
         root   /var/www/taski;
         index  index.html index.htm;
