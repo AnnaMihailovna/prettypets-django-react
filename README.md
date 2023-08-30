@@ -177,6 +177,13 @@ npm run build
 ```
 sudo cp -r /home/yc-user/prettypets-django-react/frontend/build/. /var/www/taski/
 ```
+Чтобы фотографии котиков отображались на сайте, создайте директорию media в директории /var/www/kittygram/. Django-приложение будет использовать эту директорию для хранения картинок.
+В настройках бэкенда для константы MEDIA_ROOT указан путь до созданной директории media.
+Назначьте текущего пользователя владельцем директории media, чтобы Django-приложение могло сохранять картинки. Для этого используйте команду chown
+```
+sudo chown -R <имя_пользователя> /var/www/kittygram/media/
+```
+
 Через редактор Nano откройте файл конфигурации веб-сервера
 ```
 sudo nano /etc/nginx/sites-enabled/default
@@ -189,11 +196,13 @@ server {
     server_name публичный_ip_вашего_удалённого_сервера;
     
     location /api/ {
+        client_max_body_size 20M;
         # Эта команда определяет, куда нужно перенаправить запрос.
         proxy_pass http://127.0.0.1:8000;
     }
 
     location /admin/ {
+        client_max_body_size 20M;
         proxy_pass http://127.0.0.1:8000;
     }
 
@@ -220,7 +229,7 @@ sudo systemctl reload nginx
 sudo tail /var/log/nginx/access.log
 ```
 ---
-### Попробовать демо-версию:
+### Попробовать демо-версию
 * [PrettyPets](https://prettykittygram.hopto.org)
 ---
 ### Над проектом работала(бэкенд и деплой)
